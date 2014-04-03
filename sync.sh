@@ -6,16 +6,17 @@
 current_machine=$(hostname -s)
 
 # paths to my libraries
-ap_loc="Pictures/Aperture Library.aplibrary/"
-local_prefix="/Volumes/Michael/Users/Michael/"
-remote_prefix="/Volumes/Michael 1/Users/Michael/"
+ap_loc="Pictures/Aperture\ Library.aplibrary/"
+local_prefix="~/"
+remote_prefix="/Volumes/Michael/"
 excls="iPod\ Photo\ Cache"
+excls="$local_prefix$excles"
 
 source_dir="$local_prefix$ap_loc"
 # dest_dir="/Volumes/Michael-1/$ap_loc"
 dest_dir="$remote_prefix$ap_loc"
 
-comm="rsync -ahvzP --itemize-changes --progress --delete --exclude=\"$excls\""
+comm="rsync -ahvzP --itemize-changes --progress --delete"
 
 echo "Source Directory: $source_dir"
 echo "Destination Directory: $dest_dir"
